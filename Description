@@ -1,0 +1,13 @@
+This is a simple chat application in Java that uses socket programming and multithreading. The code contains two parts: the server-side code and the client-side code.
+
+Server-side code:
+
+The ChatServer class creates a ServerSocket on port 9090 and listens for incoming connections from clients.
+When a client connects, the server creates a new ClientHandler thread to handle the communication with the client. The ClientHandler stores the Socket object representing the connection to the client and creates input and output streams for reading and writing data.
+In the run() method of ClientHandler, the server listens for incoming messages from the client, reads them using DataInputStream, and broadcasts them to all connected clients except the sender. This is done by iterating through the list of clientSockets and writing the message to the output stream of each socket.
+Client-side code:
+
+The ChatClient class creates a Socket that connects to the server on localhost (the local machine) at port 9090.
+The client creates input and output streams for reading and writing data and starts a new thread to listen for incoming messages from the server. In this thread, the client uses DataInputStream to read incoming messages and prints them to the console.
+In the main thread, the client uses a Scanner to read messages from the user and write them to the server using DataOutputStream.
+Note: The client-side code has been truncated in the code snippet provided.
